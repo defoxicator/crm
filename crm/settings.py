@@ -155,6 +155,8 @@ AWS_ACCESS_KEY_ID = 'AKIA25HETXAJRKXSNYXE'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'defoxicator-crm-bucket'
 
+AWS_S3_REGION_NAME = 'eu-central-1'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
