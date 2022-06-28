@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django_filters',
 
     'accounts.apps.AccountsConfig',
+
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -88,7 +90,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -147,3 +148,13 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'mail@gmail.com'
 EMAIL_HOST_PASSWORD = 'p4ssword'
+
+# S3 buckets config
+
+AWS_ACCESS_KEY_ID = 'AKIA25HETXAJRKXSNYXE'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'defoxicator-crm-bucket'
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
