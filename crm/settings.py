@@ -15,18 +15,22 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# SECURITY FIRST!!
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())
+
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'cz=&%f*9(d*zo$_55p=(p)(eki#p$pb^0159-)8k^6$9c3l&_b'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['defoxicator-crm.herokuapp.com', '127.0.0.1']
-
 
 # Application definition
 
@@ -42,7 +46,7 @@ INSTALLED_APPS = [
 
     'django_filters',
 
-    'cloudinary',
+    'storages',
     
 ]
  
@@ -80,34 +84,32 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases..
 
-'''
-STEPS FOR DJANGO POSTGRESQL DATABASE + AWS RDS
-1 - Download and install PostgreSQL & PG Admin
-2 - Login to PG admin & Create Database
-3 - Connect database to Django App & run migrations
-4 - Create database on AWS
-5 - Connect to live AWS Database with PG admin & Django
-'''
 
-'''
+# STEPS FOR DJANGO POSTGRESQL DATABASE + AWS RDS
+# 1 - Download and install PostgreSQL & PG Admin
+# 2 - Login to PG admin & Create Database
+# 3 - Connect database to Django App & run migrations
+# 4 - Create database on AWS
+# 5 - Connect to live AWS Database with PG admin & Django
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'database name',
+#         'USER':'database user',
+#         'PASSWORD':'database password',
+#         'HOST':'database endpoint',
+#         'PORT':'database port'
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'database name',
-        'USER':'database user',
-        'PASSWORD':'database password',
-        'HOST':'database endpoint',
-        'PORT':'database port'
-    }
-}
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dcmh3vok94nfql',
-        'USER': 'qqnbfibkreypgi',
-        'PASSWORD': 'd84162c6220fd8e36ffeb34b69f25ad000ed3e5d624d75b38c8bc7042defd360',
-        'HOST': 'ec2-176-34-215-248.eu-west-1.compute.amazonaws.com',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
         'PORT': '5432',
     }
 }
@@ -167,18 +169,17 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = '*********'
-EMAIL_HOST_PASSWORD = '*********'
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 
+#S3 BUCKETS CONFIG
 
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
 
-
-# Cloudinary 
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dhwehv614',
-    'API_KEY': '579211329967863',
-    'API_SECRET': 'mQ5APYPmzSUdvFBr7XAGwLkNHmo',
-    }
-    
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
