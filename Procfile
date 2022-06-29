@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: guincorn crm.wsgi --log-file -
+web: guincorn crm.wsgi
