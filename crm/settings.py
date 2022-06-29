@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
     'django_filters',
 
-    'storages',
+    'cloudinary',
     
 ]
  
@@ -173,27 +173,12 @@ EMAIL_HOST_PASSWORD = '*********'
 
 
 
-#S3 BUCKETS CONFIG
-'''
-AWS_ACCESS_KEY_ID = '*****************'
-AWS_SECRET_ACCESS_KEY = '*****************'
-AWS_STORAGE_BUCKET_NAME = '*****************'
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-'''
+# Cloudinary 
 
-
-'''
-<?xml version="1.0" encoding="UTF-8"?>
-<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-<CORSRule>
-    <AllowedOrigin>*</AllowedOrigin>
-    <AllowedMethod>GET</AllowedMethod>
-    <AllowedMethod>POST</AllowedMethod>
-    <AllowedMethod>PUT</AllowedMethod>
-    <AllowedHeader>*</AllowedHeader>
-</CORSRule>
-</CORSConfiguration>
-'''
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dhwehv614',
+    'API_KEY': '579211329967863',
+    'API_SECRET': 'mQ5APYPmzSUdvFBr7XAGwLkNHmo',
+    }
+    
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
