@@ -28,7 +28,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['defoxicator-crm.herokuapp.com', '127.0.0.1']
 
