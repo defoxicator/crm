@@ -3,7 +3,6 @@ boto3==1.24.18
 botocore==1.27.18
 certifi==2022.6.15
 charset-normalizer==2.0.12
-cloudinary==1.29.0
 Django==4.0.5
 django-filter==22.1
 django-storages==1.12.3
