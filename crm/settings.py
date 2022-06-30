@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
-import cloudinary, cloudinary_storage
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -41,9 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
-    'cloudinary',
     'accounts.apps.AccountsConfig',
 
     'django_filters',
@@ -175,16 +172,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 
-# Cloudinary
-
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': os.environ.get('cloudinary_CLOUD_NAME'),
-#     'API_KEY': os.environ.get('cloudinary_API_KEY'),
-#     'API_SECRET': os.environ.get('cloudinary_API_SECRET'),
-# }
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-# STATCIFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # S3 BUCKETS CONFIG
 
