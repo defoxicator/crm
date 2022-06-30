@@ -177,24 +177,26 @@ EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 
 # Cloudinary
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('cloudinary_CLOUD_NAME'),
-    'API_KEY': os.environ.get('cloudinary_API_KEY'),
-    'API_SECRET': os.environ.get('cloudinary_API_SECRET'),
-}
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': os.environ.get('cloudinary_CLOUD_NAME'),
+#     'API_KEY': os.environ.get('cloudinary_API_KEY'),
+#     'API_SECRET': os.environ.get('cloudinary_API_SECRET'),
+# }
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-STATCIFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# STATCIFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # S3 BUCKETS CONFIG
 
-# AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-# AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-# AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-# AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
 
-# AWS_S3_FILE_OVERWRITE = False
-# AWS_DEFAULT_ACL = None
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
