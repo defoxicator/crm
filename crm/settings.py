@@ -184,6 +184,8 @@ CLOUDINARY_STORAGE = {
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+STATCIFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 # S3 BUCKETS CONFIG
 
 # AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
