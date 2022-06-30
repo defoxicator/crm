@@ -31,7 +31,9 @@
       </ul>
     </div>
 
-    <span class="hello-msg">Hello, {{ request.user }}</span>
-    <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+    <div class="d-flex flex-row justify-content-end">
+      <div><span class="hello-msg">Hello, {{ request.user }}</span></div>
+      <div><span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span></div>
+    </div>
 
   </nav>
