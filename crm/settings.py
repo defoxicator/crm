@@ -28,7 +28,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['defoxicator-crm.herokuapp.com', '127.0.0.1']
 
@@ -154,12 +154,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
+
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 

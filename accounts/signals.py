@@ -6,15 +6,18 @@ from django.contrib.auth.models import Group
 
 def customer_profile(sender, instance, created, **kwargs):
     if created:
-        group = Group.objects.get_or_create(name='customer')
+        group, is_created = Group.objects.get_or_create(name='customer')
         instance.groups.add(group)
-
+        if is_created:
+            instance.groups.add(Group.objects.get(name='customer'))
+        else:
+            instance.groups.add(group)
 
         Customer.objects.create(
             user=instance,
             name=instance.username
             )
         
-        print('profile created')
+        print('Profile created')
 
 post_save.connect(customer_profile, sender=User)

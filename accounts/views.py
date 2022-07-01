@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 from accounts.decorators import unauthenticated_user
+from django.contrib.auth.models import Group
 
 from .models import *
 from .forms import *
@@ -22,7 +23,7 @@ def registerPage(request):
         form = CreateUserForm(request.POST)
 
         if form.is_valid():
-            user = form.save()
+            form.save()
             username = form.cleaned_data.get('username')
 
             messages.success(request, "Account was created for " + username)
