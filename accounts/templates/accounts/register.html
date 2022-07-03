@@ -13,13 +13,13 @@
 			margin: 0;
 			padding: 0;
 			height: 100%;
-			background: #7abecc !important;
+			background: #330000 !important;
 		}
 		.user_card {
 			width: 350px;
 			margin-top: auto;
 			margin-bottom: auto;
-			background: #74cfbf;
+			background: #ff9999;
 			position: relative;
 			display: flex;
 			justify-content: center;
@@ -41,7 +41,7 @@
 		}
 		.login_btn {
 			width: 100%;
-			background: #33ccff !important;
+			background: #330000 !important;
 			color: white !important;
 		}
 		.login_btn:focus {
@@ -63,6 +63,13 @@
 			outline: 0px !important;
 		}
 
+		.red_link {
+			color: #330000
+		}
+
+		.red_link:hover {
+			color: #fff
+		}
 	</style>
 
 </head>
@@ -112,7 +119,7 @@
 			
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-						Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a>
+						Already have an account? <a href="{% url 'login' %}" class="ml-2 red_link">Login</a>
 					</div>
 				</div>
 			</div>
