@@ -16,7 +16,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        {% if request.user.is_staff %}
+        {% for group in  request.user.groups.all %}
+        {%  if 'admin' == group.name %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'home' %}">Dashboard</a>
         </li>
@@ -25,9 +26,10 @@
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'account' %}">Settings</a>
+          <a class="nav-link" href="{% url 'account' %}">Profile settings</a>
         </li>
         {% endif %}
+        {% endfor %}
       </ul>
     </div>
 
