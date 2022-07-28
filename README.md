@@ -14,4 +14,4 @@ Visit site [here](https://defoxicator-crm.herokuapp.com)
 
 ### Known issues
 
-* Password reset is not working, because of high security on gmail.com address on my side
+* Password reset is not working, because of high security on gmail.com address on my side, BUT I assure you it is functional (if email address is less secure ;) )
